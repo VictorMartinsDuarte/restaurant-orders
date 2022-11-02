@@ -36,13 +36,8 @@ class TrackOrders:
         return all_days.difference(day_by_customer)
 
     def get_busiest_day(self):
-        pass
+        days = Counter(day for _, _, day in self._data)
+        return days.most_common(1)[0][0]
 
     def get_least_busy_day(self):
         pass
-
-    def all_orders_set(self):
-        return set(order["order"] for order in self._data)
-
-    def orders_by_customer(self, customer):
-        return set(o["order"] for o in self._data if o["customer"] == customer)
