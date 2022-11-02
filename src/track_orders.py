@@ -28,7 +28,12 @@ class TrackOrders:
         return all_orders_set.difference(orders_by_customer)
 
     def get_days_never_visited_per_customer(self, customer):
-        pass
+        all_days = set(day for _, _, day in self._data)
+        day_by_customer = set()
+        for customers, _, day in self._data:
+            if customers.lower() == customer.lower():
+                day_by_customer.add(day)
+        return all_days.difference(day_by_customer)
 
     def get_busiest_day(self):
         pass
