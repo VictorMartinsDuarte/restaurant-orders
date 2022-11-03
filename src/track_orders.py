@@ -42,3 +42,11 @@ class TrackOrders:
     def get_least_busy_day(self):
         days_with_orders = Counter(day for _, _, day in self._data)
         return days_with_orders.most_common()[-1][0]
+
+    def times_order_by_customer(self, customer, order):
+        times_order = ([
+            ord
+            for customers, ord, _ in self._data
+            if customers == customer.lower() and ord == order.lower()
+        ])
+        return len(times_order)
