@@ -3,8 +3,6 @@ from track_orders import TrackOrders
 
 
 def analyze_log(path_to_file):
-    
-
     orders_fn = TrackOrders()
 
     try:
